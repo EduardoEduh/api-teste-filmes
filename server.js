@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('./src/Router');
+const cors = require('cors');
 require('dotenv').config();
 
 
@@ -8,6 +9,8 @@ const app = express();
 app.use(express.json());
 app.use('/api', router);
 
+//Para conectar a api
+app.use(cors());
 
 //conectando ao banco:
 mongoose.connect(process.env.DATABASE, {
